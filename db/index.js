@@ -1,12 +1,14 @@
 import pkg from "pg";
-
+import 'dotenv/config'
 const { Pool } = pkg;
 
 const db = new Pool({
-  host: "localhost",
-  user: "postgres",
-  password: "6568",
-  database: "my-blog",
+  /* These lines of code are setting up the configuration for connecting to a PostgreSQL database using
+  the `pg` package in Node.js. */
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
   max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
